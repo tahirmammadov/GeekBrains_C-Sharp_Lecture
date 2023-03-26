@@ -1,6 +1,6 @@
 ﻿Console.Clear();
 
-void FillArray(int[] collection)
+void FillArrayRandom(int[] collection)
 {
     for (int i = 0; i < collection.Length; i++)
     {
@@ -8,17 +8,25 @@ void FillArray(int[] collection)
     }
 }
 
+void FillArrayConstant(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+}
+
 void PrintArray(int[] col)
 {
     for (int i = 0; i < col.Length; i++)
     {
-        Console.Write(col[i]+" ");
+        Console.Write(col[i] + " ");
     }
 }
 
 int IndexOf(int[] collection, int find)
 {
-    
+
     int position = -1;
     for (int i = 0; i < collection.Length; i++)
     {
@@ -31,13 +39,28 @@ int IndexOf(int[] collection, int find)
     return position;
 }
 
+int MaxInArray(int[] array)
+{
+    int max = array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > max)
+        {
+            max = array[i];
+        }
+    }
+    return max;
+}
+
 int[] array = new int[10];
 
-FillArray(array);
+FillArrayRandom(array);
 array[4] = 4;
 array[6] = 4;
 
 PrintArray(array);
 Console.WriteLine();
 
-Console.WriteLine(IndexOf(array, 4));
+Console.WriteLine("index: " + IndexOf(array, 4));
+
+Console.WriteLine("max: " + MaxInArray(array));
