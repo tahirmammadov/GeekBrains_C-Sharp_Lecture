@@ -17,52 +17,35 @@ void PrintArray(int[] arr)
     Console.WriteLine();
 }
 
-// void SelectionSort(int[] arr)
-// {
-//     int min = arr[1];
-
-//     for (int i = 0; i < arr.Length; i++)
-//     {
-//         for (int j = i + 1; j < arr.Length; j++)
-//         {
-//             if (arr[j] < min)
-//             {
-//                 min = arr[j];
-//             }
-//         }
-//         min = arr[j];
-//         int temp = arr[i];
-//         arr[i] = min;
-//     }
-
-//     Console.WriteLine();
-// }
-
-
-void SelectionSort(int[] arr)
+void SelectionSort(int[] arr, bool maxType)
 {
     for (int i = 0; i < arr.Length - 1; i++)
     {
-        int minPosition = i;
+
+        int sortIndex = i;
 
         for (int j = i + 1; j < arr.Length; j++)
         {
-            if (arr[j] < arr[minPosition]) minPosition = j;
+            if (maxType)
+            {
+                if (arr[j] > arr[sortIndex]) sortIndex = j;
+            }
+            else
+            {
+                if (arr[j] < arr[sortIndex]) sortIndex = j;
+            }
         }
-
         int temp = arr[i];
-        arr[i] = arr[minPosition];
-        arr[minPosition] = temp;
+        arr[i] = arr[sortIndex];
+        arr[sortIndex] = temp;
     }
 
     Console.WriteLine();
 }
 
-
-
 int[] arr = new int[10];
 
 FillArray(arr);
 PrintArray(arr);
-SelectionSort(arr);
+SelectionSort(arr, false);
 PrintArray(arr);
