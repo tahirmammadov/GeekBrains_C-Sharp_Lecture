@@ -1,11 +1,14 @@
-﻿int Fibonacci(int n)
+﻿//011235813
+
+Console.Clear();
+double Fibonacci(int n)
 {
-    //i = (i-1) + (i-2);
-
-    i=2;
-    return i+
-
-
-    Console.WriteLine($"{i}");
-    return Fibo(i+1);
+	if (n==1 || n==2) return 1;
+	else return Fibonacci(n-1)+Fibonacci(n-2);
 }
+
+for(int i=1; i<10; i++)
+{
+	Console.WriteLine($"f({i}) = {Fibonacci(i)}");
+}
+
